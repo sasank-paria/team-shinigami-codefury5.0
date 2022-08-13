@@ -1,6 +1,23 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION["user_id"])) {
+    header("location:home.php");
+}
+$connect = new PDO("mysql:host=localhost; dbname=testing", "root", "mysql");
+$message = '';
+$error_user_name = '';
+$error_user_email = '';
+$error_user_password = '';
+$user_name = '';
+$user_email = '';
+$user_password = '';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +45,7 @@
             <img src="assets/websummit-lisbon.gif" width="30" height="30" class="d-inline-block align-top" alt=""> Startup Guider
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 55%;">
             <ul class="navbar-nav">
@@ -83,4 +100,5 @@
 </body>
 
 </html>
+
 </html>
