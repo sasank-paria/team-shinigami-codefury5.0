@@ -1,5 +1,6 @@
 <?php
 require_once "config.php";
+include('function.php');
 session_start();
 
 if(isset($_SESSION["user_id"]))
@@ -82,14 +83,16 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
         {
             $user_avatar = make_avatar(strtoupper($username[0]));
             
-            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."'WHERE register_user_id = '".$connect->lastInsertId()."'";
-            $statement = $connect->prepare($query);
-			$statement->execute();
-
+            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."WHERE user_name1 = ?";
+            $result   = mysqli_query($conn, $query);
             header("location: login.html");
         }
         else{
             echo "Something went wrong... cannot redirect!";
+            
+            echo"$password";
+            echo"$username";
+            echo"email";
         }
 }
 }
