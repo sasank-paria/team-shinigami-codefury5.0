@@ -1,20 +1,3 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    header("location:home.php");
-}
-$connect = new PDO("mysql:host=localhost; dbname=testing", "root", "mysql");
-$message = '';
-$error_user_name = '';
-$error_user_email = '';
-$error_user_password = '';
-$user_name = '';
-$user_email = '';
-$user_password = '';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,23 +14,22 @@ $user_password = '';
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" href="css/gradientformbar.css">
+    <link rel="stylesheet" href="css/gradientfornavbar.css">
     <link rel="stylesheet" href="css/waveeffect.css">
 
 </head>
 
 <body>
-
-
+    <!--navbar-->
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: dodgerblue;">
         <a class="navbar-brand  mb-0 h1" href="#" style="color: white; margin-left: 1%;">
             <img src="assets/websummit-lisbon.gif" width="30" height="30" class="d-inline-block align-top" alt=""> Startup Guider
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 55%;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 45%;">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class=" nav-link " href="index.html " style="color: white;">Home <span class="sr-only ">(current)</span></a>
@@ -72,33 +54,59 @@ $user_password = '';
                 <li class="nav-item ">
                     <a class="nav-link " href=" " style="color: white;">about</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
 
             </ul>
 
         </div>
     </nav>
-    <!--end of navbar-->
 
-    <!--wave effect-->
-    <div class="waveeffect">
-        <p style="color: white;">hello</p>
-        <div class="waveWrapper waveAnimation">
-            <div class="waveWrapperInner bgTop">
-                <div class="wave wavetop" style="background-image: url('assets/waveeffect/wavetop.png')"></div>
-            </div>
-            <div class="waveWrapperInner bgMiddle">
-                <div class="wave wavemid" style="background-image: url('assets/waveeffect/wavemid.png')"></div>
-            </div>
-            <div class="waveWrapperInner bgBottom">
-                <div class="wave wavebottom" style="background-image: url('assets/waveeffect/wavebottom.png')"></div>
+    <!--end of navbar-->
+    <div class="row gy-5">
+
+        <div class="col-sm-6 ">
+            <div class="card " style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
+                <img src="assets/services/app2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Web Development</h5>
+                    <p class="card-text"></p>
+
+                    <p class="card-text">Develop your first Web Page for your startup today!
+                    </p>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                </div>
             </div>
         </div>
+
+        <div class="col-sm-6">
+            <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
+                <img src="assets/services/Content-Writing.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">content writing</h5>
+                    <p class="card-text"></p>
+
+                    <p class="card-text">Write the content for your startup today!
+                    </p>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <!--wave effect end -->
+
+    <!--grid with geeks-->
 
 
 </body>
-
-</html>
 
 </html>
