@@ -83,7 +83,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
         {
             $user_avatar = make_avatar(strtoupper($username[0]));
             
-            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."WHERE user_name1 = ?";
+            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."'WHERE user_name1 = ?";
             $result   = mysqli_query($conn, $query);
             header("location: login.html");
         }
