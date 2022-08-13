@@ -34,6 +34,8 @@
 
     <!-- Template Main CSS File -->
     <link href="Home2/assets/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="addToCart.js"></script>
 </head>
 
 
@@ -97,10 +99,13 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
     <div class="row gy-5">
 
         <div class="col-sm-6 ">
-            <div class="card " style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
+            <div class="card " id="item1" style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
                 <img src="assets/seogeek/s1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Sahil Patel <br> SEO engineer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
@@ -108,7 +113,7 @@
 
                     <p class="card-text">Develop your first Web Page for your startup today!
                     </p>
-                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'" onclick="addtocart(item1)">Hire Me</a>
                 </div>
             </div>
         </div>
