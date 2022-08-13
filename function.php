@@ -12,7 +12,7 @@ function make_avatar($character)
     imagecolorallocate($image, $red, $green, $blue);  
     $textcolor = imagecolorallocate($image, 255,255,255);  
 
-    imagettftext($image, 100, 0, 55, 150, $textcolor, 'font/arial.ttf', $character);  
+    imagettftext($image, 100, 0, 55, 150, $textcolor, "arial.ttf", $character);  
     //header("Content-type: image/png");  
     imagepng($image, $path);
     imagedestroy($image);
