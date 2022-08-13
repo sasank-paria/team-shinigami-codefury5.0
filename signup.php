@@ -77,13 +77,12 @@ if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 {
     $user_avatar = make_avatar(strtoupper($username[0]));
-    $query    = "INSERT into `register_user` (user_name1, user_email, user_password)
-    VALUES ('$username','$email', '" . md5($password) . "')";
+    $query    = "INSERT into `register_user` (user_name1, user_email, user_password,user_avatar)
+    VALUES ('$username','$email', '" . md5($password) . "','$user_avatar')";
     $result   = mysqli_query($conn, $query);
     if ($result)
         {
-            $user_avatar = make_avatar(strtoupper($username[0]));
-            mysqli_query($conn, $query);
+           
             header("location: login.html");
         }
         else{
