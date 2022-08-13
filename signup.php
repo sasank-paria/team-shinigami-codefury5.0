@@ -1,17 +1,28 @@
 <?php
 require_once "config.php";
+session_start();
 
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
-$email = $email_err = $email_err ="";
+if(isset($_SESSION["user_id"]))
+{
+	header("location:home.php");
+}
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
- 
+    $username = stripslashes($_REQUEST['username']);
+//escapes special characters in a string
+$username = mysqli_real_escape_string($conn, $username);
+$email    = stripslashes($_REQUEST['email']);
+$email    = mysqli_real_escape_string($conn, $email);
+$password = stripslashes($_REQUEST['password']);
+$password = mysqli_real_escape_string($conn, $password);
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Username cannot be blank";
     }
     else{
-        $sql = "SELECT id FROM user WHERE username = ?";
+        $sql = "SELECT register_user_id FROM register_user WHERE user_name1 = ?";
         $stmt = mysqli_prepare($conn, $sql);
         if($stmt)
         {
@@ -32,12 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 }
             }
             else{
-                echo "Something went wrong";
+                echo "Something went wrong abhove";
+                echo "$username";
+            echo "$password";
+            echo "$email";
             }
         }
+    
     }
-
     mysqli_stmt_close($stmt);
+
 
 
 // Check for password
@@ -60,30 +75,26 @@ if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
 // If there were no errors, go ahead and insert into the database
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 {
-    $sql = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    if ($stmt)
-    {
-        mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password,$param_email);
-
-        // Set these parameters
-        $param_username = $username;
-        $param_email = $email;
-        $param_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Try to execute the query
-        if (mysqli_stmt_execute($stmt))
+    $query    = "INSERT into `register_user` (user_name1, user_email, user_password)
+    VALUES ('$username','$email', '" . md5($password) . "')";
+    $result   = mysqli_query($conn, $query);
+    if ($result)
         {
-            header("location: login.php");
+            $user_avatar = make_avatar(strtoupper($username[0]));
+            
+            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."'WHERE register_user_id = '".$connect->lastInsertId()."'";
+            $statement = $connect->prepare($query);
+			$statement->execute();
+
+            header("location: login.html");
         }
         else{
             echo "Something went wrong... cannot redirect!";
         }
-    }
-    mysqli_stmt_close($stmt);
+}
 }
 mysqli_close($conn);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
