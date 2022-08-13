@@ -6,9 +6,10 @@
          
   // Store the submitted data sent
   // via POST method, stored 
-    
+  include('function.php');
+  include('config.php');
   // Temporarily in $_POST structure.
-   
+  $name= $_SESSION["name"];
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +62,14 @@
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <li><a class="nav-link   scrollto" href="#invest">Invest</a></li>
 
-                    <li class="dropdown"><a href="#"><span><img src="assets/1.png" alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#"><span><img src=assets/1.png alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Details</a></li>
                             <!-- <li><a href="#">Drop Down 2</a></li> -->
                             <!--  Use to create dropdown options  -->
                             <li><a href="#">Log Out</a></li>
-                            <<?php  echo "<li><a href="#">$_SESSION['name']</a></li>"?>
+                           
+                            
                         </ul>
                     </li>
 

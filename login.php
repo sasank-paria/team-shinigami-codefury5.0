@@ -5,22 +5,27 @@
   
 // Initialize the session
 session_start();
-       
+    
 // Store the submitted data sent
 // via POST method, stored 
   
 // Temporarily in $_POST structure.
-$_SESSION['name'] = $_POST['myusername'];
+
 
 // check if the user is already logged in
 require_once "config.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
+    session_start();
+    // Set session variables
+    
     
     $myusername = mysqli_real_escape_string($conn,$_POST['email']);
     $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
     
+    $phpVariable = $myusername;
+    $_SESSION["name"] = $myusername;
     $sql = "SELECT register_user_id  FROM register_user WHERE user_email = '$myusername' and user_password = '" . md5($mypassword) . "'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -34,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        
        $_SESSION['login_user'] = $myusername;
        
-       header("location: welcome.php");
+       header("location: index12.php");
     }else {
        $error = "Your Login Name or Password is invalid";
     }
