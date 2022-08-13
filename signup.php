@@ -80,6 +80,12 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
     $result   = mysqli_query($conn, $query);
     if ($result)
         {
+            $user_avatar = make_avatar(strtoupper($username[0]));
+            
+            $query  = "UPDATE register_user SET user_avatar = '".$user_avatar."'WHERE register_user_id = '".$connect->lastInsertId()."'";
+            $statement = $connect->prepare($query);
+			$statement->execute();
+
             header("location: login.html");
         }
         else{
