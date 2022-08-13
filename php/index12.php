@@ -31,7 +31,7 @@ $user_password = '';
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" href="css/gradientfornavbar.css">
+    <link rel="stylesheet" href="css/gradientformbar.css">
     <link rel="stylesheet" href="css/waveeffect.css">
 
 </head>
