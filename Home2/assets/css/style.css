@@ -1203,7 +1203,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #47b2e4;
+  background: #b7e8ff;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1216,7 +1216,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #209dd8;
+  background: #b7e8ff;
   color: #fff;
   text-decoration: none;
 }
@@ -1227,32 +1227,3 @@ section {
   color: #fff;
 }
 
-#footer .copyright {
-  float: left;
-}
-
-#footer .credits {
-  float: right;
-  font-size: 13px;
-}
-
-#footer .credits a {
-  transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-  #footer .footer-bottom {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  #footer .copyright,
-  #footer .credits {
-    text-align: center;
-    float: none;
-  }
-
-  #footer .credits {
-    padding-top: 4px;
-  }
-}
