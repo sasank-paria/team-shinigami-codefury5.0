@@ -11,6 +11,10 @@ define('DB_NAME', 'testing');
 // Try connecting to the Database
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
+
+//database_connection.php
+$connect = new PDO("mysql:host=localhost;dbname=testing", "root", "mysql");
+
 //Check the connection
 if($conn == false){
     dir('Error: Cannot connect');

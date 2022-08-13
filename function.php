@@ -26,7 +26,7 @@ function Get_user_avatar($user_id, $connect)
 {
     $query = "
     SELECT user_avatar FROM register_user 
-    WHERE register_user_id = '".$user_id."'
+    WHERE user_email = '".$user_id."'
     ";
 
     $statement = $connect->prepare($query);
