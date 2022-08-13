@@ -12,7 +12,10 @@ function make_avatar($character)
     imagecolorallocate($image, $red, $green, $blue);  
     $textcolor = imagecolorallocate($image, 255,255,255);  
 
-    imagettftext($image, 100, 0, 55, 150, $textcolor, "arial.ttf", $character);  
+    $font = 'C:\Program Files\Ampps\www\codefury\team-shinigami-codefury5.0\font\arial.ttf';
+    $font = mb_convert_encoding($font, 'big5', 'utf-8');
+
+    imagettftext($image, 100, 0, 55, 150, $textcolor, $font, $character);  
     //header("Content-type: image/png");  
     imagepng($image, $path);
     imagedestroy($image);
