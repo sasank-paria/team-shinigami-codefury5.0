@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" href="css/gradientfornavbar.css">
+    <link rel="stylesheet" href="css/waveeffect.css">
 
 </head>
 
@@ -22,28 +24,47 @@
 
     <!--navbar-->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: dodgerblue;">
-        <a class="navbar-brand  mb-0 h1" href="#" style="color: white;">
+        <a class="navbar-brand  mb-0 h1" href="#" style="color: white; margin-left: 1%;">
             <img src="assets/websummit-lisbon.gif" width="30" height="30" class="d-inline-block align-top" alt=""> Startup Guider
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 65%;">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class=" nav-link " href="index.html " style="color: white;">Home <span class="sr-only ">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " href=" " style="color: white;">Chat with us</a>
+                    <a class="nav-link " href=" " style="color: white;">Feed</a>
+                    <!--this page will have videos of startup with like and comments-->
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " href=" " style="color: white;">live session</a>
+                    <a class="nav-link " href=" " style="color: white;">contact us</a>
                 </li>
-
-
             </ul>
 
         </div>
     </nav>
+    <!--end of navbar-->
+
+    <!--wave effect-->
+    <div style="">
+        <div class="waveWrapper waveAnimation">
+            <div class="waveWrapperInner bgTop">
+                <div class="wave wavetop" style="background-image: url('assets/waveeffect/wavetop.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgMiddle">
+                <div class="wave wavemid" style="background-image: url('assets/waveeffect/wavemid.png')"></div>
+            </div>
+            <div class="waveWrapperInner bgBottom">
+                <div class="wave wavebottom" style="background-image: url('assets/waveeffect/wavebottom.png')"></div>
+            </div>
+        </div>
+    </div>
+    <!--wave effect end -->
+
 
 </body>
+
+</html>
