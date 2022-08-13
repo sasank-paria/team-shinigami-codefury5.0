@@ -1,11 +1,17 @@
 <?php
 
-session_start();
 
-if(isset($_SESSION["user_id"]))
-{
-	header("location:home.php");
-}
+
+  
+// Initialize the session
+session_start();
+       
+// Store the submitted data sent
+// via POST method, stored 
+  
+// Temporarily in $_POST structure.
+$_SESSION['name'] = $_POST['myusername'];
+
 // check if the user is already logged in
 require_once "config.php";
 
