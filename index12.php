@@ -61,15 +61,21 @@
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <li><a class="nav-link   scrollto" href="#invest">Invest</a></li>
-
-                    <li class="dropdown"><a href="#"><span><img src=assets/1.png alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
+                   
+                    <li class="dropdown"><a href="#"><span> <?php $sql = "SELECT user_avatar FROM register_user WHERE user_email = '$name'" ; 
+                            if ($result = mysqli_query($conn, $sql)) {
+                                if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo  "<img src=".$row['user_avatar'] ;
+                            }
+                        }
+                    }
+                    ?> width="30px" height="30px" ></span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#">Details</a></li>
                             <!-- <li><a href="#">Drop Down 2</a></li> -->
                             <!--  Use to create dropdown options  -->
                             <li><a href="#">Log Out</a></li>
-                           
-                            
                         </ul>
                     </li>
 
