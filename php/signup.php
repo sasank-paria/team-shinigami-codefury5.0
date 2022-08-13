@@ -7,16 +7,16 @@ if(isset($_SESSION["user_id"]))
 	header("location:home.php");
 }
 
-$username = stripslashes($_REQUEST['username']);
+
+
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    $username = stripslashes($_REQUEST['username']);
 //escapes special characters in a string
 $username = mysqli_real_escape_string($conn, $username);
 $email    = stripslashes($_REQUEST['email']);
 $email    = mysqli_real_escape_string($conn, $email);
 $password = stripslashes($_REQUEST['password']);
 $password = mysqli_real_escape_string($conn, $password);
-
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
- 
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Username cannot be blank";
@@ -76,7 +76,7 @@ if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 {
     $query    = "INSERT into `register_user` (user_name1, user_email, user_password)
-    VALUES ('$username', '" . md5($password) . "', '$email')";
+    VALUES ('$username','$email', '" . md5($password) . "')";
     $result   = mysqli_query($conn, $query);
     if ($result)
         {
