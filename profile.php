@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <title>startup guider homepage</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
@@ -48,20 +48,24 @@
 
             <nav id="navbar" class="navbar">
 
-    
-			<ul>
-					<li><a class="nav-link scrollto"> <form class="navbar-form navbar-left" method="post">
-			    	<div class="input-group">
-			    		<input type="text" class="form-control" id="searchbar" name="searchbar" placeholder="Search" autocomplete="off" />
-			    		<div class="input-group-btn">
-			    			<button class="btn btn-default" type="submit" name="searchBtn" id="searchBtn">
+
+                <ul>
+                    <li>
+                        <a class="nav-link scrollto">
+                            <form class="navbar-form navbar-left" method="post">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="searchbar" name="searchbar" placeholder="Search" autocomplete="off" />
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-light" type="submit" name="searchBtn" id="searchBtn">
 			    				<i class="glyphicon glyphicon-search"></i>
 			    			</button>
-			    		</div>
-			    	</div>
+                                    </div>
+                                </div>
 
-			    	<div class="countryList" style="position: absolute;width: 235px;z-index: 1001;"></div>
-			    </form></a></li>
+                                <div class="countryList" style="position: absolute;width: 235px;z-index: 1001;"></div>
+                            </form>
+                        </a>
+                    </li>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
@@ -86,6 +90,8 @@
         </div>
     </header>
     <!-- End Header -->
+
+    <!--end of navbar-->
 
     <!--end of navbar-->
     <br>
