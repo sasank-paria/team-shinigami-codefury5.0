@@ -93,6 +93,7 @@
                           <li><a href="profile.php">Details</a></li>
                               <!-- <li><a href="#">Drop Down 2</a></li> -->
                               <!--  Use to create dropdown options  -->
+                              <li><a href="live chatting/index.php">Live chat</a></li>
                               <li><a href="index.html">Log Out</a></li>
                           </ul>
                       </li>
