@@ -1,3 +1,15 @@
+<?php
+  
+  // Initialize the session
+  session_start();
+         
+  // Store the submitted data sent
+  // via POST method, stored 
+  include('function.php');
+  include('config.php');
+  // Temporarily in $_POST structure.
+  $name= $_SESSION["name"];
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <title>services</title>
+    <title>startup guider homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
@@ -36,7 +48,6 @@
 </head>
 
 <body>
-
     <!-- Header -->
     <header id="header" class="fixed-top " style="background-color:rgba(67, 96, 146, 0.9) ;">
         <div class="container d-flex align-items-center">
@@ -63,22 +74,29 @@
                             </form>
                         </a>
                     </li>
-                    <li><a class="nav-link " href="index.html">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link   scrollto" href="#invest">Invest</a></li>
 
-                    <li><a class="nav-link " href="Services.html">Services</a></li>
-
-
-                    <li><a class="nav-link   " href="#invest">Invest</a></li>
-
-                    <li class="dropdown"><a href="#"><span><img src="assets/1.png" alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Details</a></li>
-                            <!-- <li><a href="#">Drop Down 2</a></li> -->
-                            <!--  Use to create dropdown options  -->
-                            <li><a href="#">Log Out</a></li>
-                        </ul>
-                    </li>
-
+                    <li class="dropdown"><a href="#"><span> <?php $sql = "SELECT user_avatar FROM register_user WHERE user_email = '$name'"; 
+                          if ($result = mysqli_query($conn, $sql)) {
+                              if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_array($result)) {
+                              echo  "<img src=".$row['user_avatar'] ;
+                          }
+                      }
+                  }
+                  ?> width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
+                          <ul>
+                              <li><a href="#">Details</a></li>
+                              <!-- <li><a href="#">Drop Down 2</a></li> -->
+                              <!--  Use to create dropdown options  -->
+                              <li><a href="#">Log Out</a></li>
+                          </ul>
+                      </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -88,96 +106,44 @@
     </header>
     <!-- End Header -->
 
+    <!--end of navbar-->
+
+    <!--end of navbar-->
+
+
+    <!--grid with geeks-->
+    <br>
     <br>
     <br>
     <br>
     <br>
 
-    <!--carousel-->
-
-    <!--carousel-->
-    <br>
-    <br>
-    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="position: relative; margin-left: 2%; margin-right: 2%; ">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" style="padding: 10%; padding-top: 0%; padding-bottom: 0%;">
-            <div class="carousel-item active" data-interval="1800">
-                <img src="assets/services/app.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>App development</h1>
-                    <p>we provide best app developers.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-interval="1800">
-                <img src="assets/services/seo.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>SEO</h1>
-                    <p>search engine optimization for your webpage</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-interval="1800">
-                <img src="assets/services/uiux.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>UI/UX</h1>
-                    <p>Make your webpage attractive.</p>
-                </div>
-            </div>
-            <div class="carousel-item" data-interval="1800">
-                <img src="assets/services/web.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>web development.</h5>
-                    <p>To reach your customers all around the world</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </button>
-    </div>
-    <br>
-    <!--end of carousel-->
-
-    <div>
-        <h1 style="color: black; margin-left: 45%;">services</h1>
-    </div>
-    <br>
-
-    <!--grid with cards-->
     <div class="row gy-5">
 
         <div class="col-sm-6 ">
             <div class="card " style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/app2.jpg" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Web Development</h5>
+                    <h5 class="card-title">Virat Pandey <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Develop your first Web Page for your startup today!
+                    <p class="card-text">Best Fullstack Developer
                     </p>
-                    <a href="webservicegeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/Content-Writing.jpg" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">content writing</h5>
+                    <h5 class="card-title">manish pandey <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Write the content for your startup today!
+                    <p class="card-text">FUll stack developer with 13 years experience.
                     </p>
-                    <a href="contentwritinggeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
@@ -191,28 +157,28 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/digitalmarketing.png" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">digital marketing</h5>
+                    <h5 class="card-title">yuvraj Singh <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">for the wider customer base.
+                    <p class="card-text">experience of 2 year in Full-Stack
                     </p>
-                    <a href="degitalmarketinggeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/photographer.jpg" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web4.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Photograhy</h5>
+                    <h5 class="card-title">Rani Mukherjee<br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Start clicking photos and became Professional photograher.
+                    <p class="card-text">Best in React,js & python.
                     </p>
-                    <a href="photographygeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
@@ -226,37 +192,35 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/seo2.jpg" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web5.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">SEO</h5>
+                    <h5 class="card-title">Sahil Patel <br> Fullstack developer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">start your seo journey today! </p>
+                    <p class="card-text">experience of 10 Years in Full-stack-development. </p>
                     <br>
-                    <a href="seogeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-6 ">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/services/uiux2.png" class="card-img-top" alt="...">
+                <img src="assets/webgeeks/web6.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">UI/UX</h5>
+                    <h5 class="card-title">Sushmita Sen <br> Fullstack developer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Start creating Design for web/app for other & choose it as career.
+                    <p class="card-text">FULL STACK DEVLEOPER
                     </p>
-                    <a href="uigeek.html" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Show</a>
+                    <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <br>
-    <br>
-    <br>
+    <!--end of geeks grid-->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -281,9 +245,9 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="index.html">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="Services.html">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
                         </ul>
@@ -291,14 +255,12 @@
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="webservicegeek.html">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="contentwritinggeek.html">content writing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="photographygeek.html">Photography</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="seogeek.html">Seo</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="uigeek.html">UI/UX</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.html">digital marketing</a></li>
-
+                        <ul><li><i class="bx bx-chevron-right"></i> <a href="webservicegeek.php">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="contentwritinggeek.php">content writing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="photographygeek.php">Photography</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="seogeek.php">Seo</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="uigeek.php">UI/UX</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.php">digital marketing</a></li>
                         </ul>
                     </div>
 
@@ -335,6 +297,7 @@
 
     <!-- Template Main JS File -->
     <script src="Home2/assets/js/main.js"></script>
+
 </body>
 
 </html>

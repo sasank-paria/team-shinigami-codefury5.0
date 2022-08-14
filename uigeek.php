@@ -1,3 +1,15 @@
+<?php
+  
+  // Initialize the session
+  session_start();
+         
+  // Store the submitted data sent
+  // via POST method, stored 
+  include('function.php');
+  include('config.php');
+  // Temporarily in $_POST structure.
+  $name= $_SESSION["name"];
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <title>Content writers</title>
+    <title>UI/UX</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
@@ -34,6 +46,7 @@
     <!-- Template Main CSS File -->
     <link href="Home2/assets/css/style.css" rel="stylesheet">
 </head>
+
 
 <body>
     <!-- Header -->
@@ -62,18 +75,29 @@
                             </form>
                         </a>
                     </li>
-                    <li><a class="nav-link " href="index.html">Home</a></li>
-                    <li><a class="nav-link " href="Services.html">Services</a></li>
-                    <li><a class="nav-link " href="#invest">Invest</a></li>
+                    <li><a class="nav-link  " href="index.html">Home</a></li>
 
-                    <li class="dropdown"><a href="#"><span><img src="assets/1.png" alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Details</a></li>
-                            <!-- <li><a href="#">Drop Down 2</a></li> -->
-                            <!--  Use to create dropdown options  -->
-                            <li><a href="#">Log Out</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="nav-link  " href="Services.html">Services</a></li>
+
+
+                    <li><a class="nav-link    " href="#invest">Invest</a></li>
+
+                    <li class="dropdown"><a href="#"><span> <?php $sql = "SELECT user_avatar FROM register_user WHERE user_email = '$name'"; 
+                          if ($result = mysqli_query($conn, $sql)) {
+                              if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_array($result)) {
+                              echo  "<img src=".$row['user_avatar'] ;
+                          }
+                      }
+                  }
+                  ?> width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
+                          <ul>
+                              <li><a href="#">Details</a></li>
+                              <!-- <li><a href="#">Drop Down 2</a></li> -->
+                              <!--  Use to create dropdown options  -->
+                              <li><a href="#">Log Out</a></li>
+                          </ul>
+                      </li>
 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -86,26 +110,26 @@
 
     <!--end of navbar-->
 
+    <!--end of navbar-->
+
 
     <!--grid with geeks-->
     <br>
     <br>
     <br>
     <br>
-    <br><br>
-    <div>
-        <h3 style="margin-left: 40%;">content writers geeks</h3>
-    </div>
+    <br>
+
     <div class="row gy-5">
 
         <div class="col-sm-6 ">
             <div class="card " style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c1.jpg" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Rishab Talla <br> Content writer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐ </h5>
+                    <h5 class="card-title">Mahesh Patel <br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Writer with great knowledge and Enthusiasm.
+                    <p class="card-text">Best UI/UX developer in START UP ADVISOR.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -114,12 +138,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c2.jpg" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u2.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Sahil Patel <br> Content Writer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Anurag Yadav <br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Write the content for your startup today!
+                    <p class="card-text">15 year Experinced in UI developing.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -135,12 +159,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c3.png" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u3.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Bhaskar barad <br> Content Writer <br>Ratings 4.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title"> arjun <br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">writer with great knowledge.
+                    <p class="card-text">5 year Experinced in UI developing.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -149,12 +173,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c4.jpg" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u4.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Latesh Billava <br> Content Writer <br>Ratings 3.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Mahesh<br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">freshie but able do work Faster than others.
+                    <p class="card-text">5 year Experinced in UI developing.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -170,12 +194,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c5.jpg" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u5.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Ram Prasad <br> Content Writer <br>Ratings 4.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Sahil Patel <br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">good writer with lot of experience. </p>
+                    <p class="card-text">start your seo journey today! </p>
                     <br>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -184,12 +208,12 @@
 
         <div class="col-sm-6 ">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/contentgeek/c6.jpg" class="card-img-top" alt="...">
+                <img src="assets/uigeek/u6.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Amey Birute <br> Content Writer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Rishabh Talla <br> UI/UX developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Smart and efficient writing skills with creativity.
+                    <p class="card-text">Best UI developer.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -234,12 +258,13 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="webservicegeek.html">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="contentwritinggeek.html">content writing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="photographygeek.html">Photography</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="seogeek.html">Seo</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="uigeek.html">UI/UX</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.html">digital marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="webservicegeek.php">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="contentwritinggeek.php">content writing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="photographygeek.php">Photography</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="seogeek.php">Seo</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="uigeek.php">UI/UX</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.php">digital marketing</a></li>
+
 
                         </ul>
                     </div>

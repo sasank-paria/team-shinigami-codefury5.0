@@ -1,5 +1,18 @@
+<?php
+  
+  // Initialize the session
+  session_start();
+         
+  // Store the submitted data sent
+  // via POST method, stored 
+  include('function.php');
+  include('config.php');
+  // Temporarily in $_POST structure.
+  $name= $_SESSION["name"];
+  ?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +22,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <title>startup guider homepage</title>
+    <title>digital marketing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
@@ -62,22 +75,26 @@
                             </form>
                         </a>
                     </li>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link   scrollto" href="#invest">Invest</a></li>
+                    <li><a class="nav-link " href="index.html">Home</a></li>
+                    <li><a class="nav-link " href="Services.html">Services</a></li>
+                    <li><a class="nav-link  " href="#invest">Invest</a></li>
 
-                    <li class="dropdown"><a href="#"><span><img src="assets/1.png" alt="" width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Details</a></li>
-                            <!-- <li><a href="#">Drop Down 2</a></li> -->
-                            <!--  Use to create dropdown options  -->
-                            <li><a href="#">Log Out</a></li>
-                        </ul>
-                    </li>
-
+                    <li class="dropdown"><a href="#"><span> <?php $sql = "SELECT user_avatar FROM register_user WHERE user_email = '$name'"; 
+                          if ($result = mysqli_query($conn, $sql)) {
+                              if (mysqli_num_rows($result) > 0) {
+                          while ($row = mysqli_fetch_array($result)) {
+                              echo  "<img src=".$row['user_avatar'] ;
+                          }
+                      }
+                  }
+                  ?> width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
+                          <ul>
+                              <li><a href="#">Details</a></li>
+                              <!-- <li><a href="#">Drop Down 2</a></li> -->
+                              <!--  Use to create dropdown options  -->
+                              <li><a href="#">Log Out</a></li>
+                          </ul>
+                      </li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -98,17 +115,17 @@
     <br>
     <br>
     <br>
-
+    <br>
     <div class="row gy-5">
 
         <div class="col-sm-6 ">
             <div class="card " style=" position: relative; margin: 2%; padding: 2%; box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web1.jpg" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Virat Pandey <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Sahil Patel <br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Best Fullstack Developer
+                    <p class="card-text">Good and efficent skill in digital marketing.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -117,12 +134,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web2.png" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">manish pandey <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">SHASHI TAROOR<br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">FUll stack developer with 13 years experience.
+                    <p class="card-text">fast in digital marketing.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -138,12 +155,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web3.jpg" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d3.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">yuvraj Singh <br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Gaurav Yadav <br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">experience of 2 year in Full-Stack
+                    <p class="card-text">for the wider customer base.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -152,12 +169,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web4.png" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d4.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Rani Mukherjee<br> Fullstack developer developer<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Viraj Mhatre <br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">Best in React,js & python.
+                    <p class="card-text">Hard working and efficient.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -173,12 +190,12 @@
 
         <div class="col-sm-6">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 5%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web5.jpg" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d5.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Sahil Patel <br> Fullstack developer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Sahil Patel <br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">experience of 10 Years in Full-stack-development. </p>
+                    <p class="card-text">Fast and accurate with proper time management skills.</p>
                     <br>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -187,12 +204,12 @@
 
         <div class="col-sm-6 ">
             <div class="card " style="margin: 2%; padding: 2%; position: relative; margin-left: 2%;  box-shadow: 10px 10px 5px lightslategray; ">
-                <img src="assets/webgeeks/web6.jpg" class="card-img-top" alt="...">
+                <img src="assets/digitalmarketgeek/d6.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Sushmita Sen <br> Fullstack developer <br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
+                    <h5 class="card-title">Rishab Talla <br> Digital Marketing<br>Ratings 5.0⭐ ⭐ ⭐ ⭐ ⭐</h5>
                     <p class="card-text"></p>
 
-                    <p class="card-text">FULL STACK DEVLEOPER
+                    <p class="card-text">moderate and experienced digitial marketer.
                     </p>
                     <a href="" class="btn btn-primary" onmouseover="this.style.color='blue'" onmouseout="this.style.color='white'">Hire Me</a>
                 </div>
@@ -226,9 +243,9 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="index.html">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="Services.html">Services</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
                         </ul>
@@ -237,11 +254,13 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="webservicegeek.php">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="contentwritinggeek.php">content writing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="photographygeek.php">Photography</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="seogeek.php">Seo</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="uigeek.php">UI/UX</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.php">digital marketing</a></li>
+
                         </ul>
                     </div>
 

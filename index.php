@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        
        $_SESSION['login_user'] = $myusername;
        
-       header("location: index12.php");
+       header("location: homepage.php");
     }else {
        $error = "Your Login Name or Password is invalid";
     }

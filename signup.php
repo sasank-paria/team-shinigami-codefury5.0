@@ -3,10 +3,6 @@ require_once "config.php";
 include('function.php');
 session_start();
 
-if(isset($_SESSION["user_id"]))
-{
-	header("location:home.php");
-}
 
 
 
@@ -83,7 +79,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
     if ($result)
         {
            
-            header("location: login.html");
+            header("location: index.php");
         }
         else{
             echo "Something went wrong... cannot redirect!";
