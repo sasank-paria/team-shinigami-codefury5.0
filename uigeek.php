@@ -55,7 +55,7 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/logo-removebg-preview.png" width="80" height="80" alt="" style="margin-right: 10%;">
             </a>
-            <h1 class="logo me-auto"><a href="index.html">Startup Guider</a></h1>
+            <h1 class="logo me-auto"><a href="homepage.php">Startup Guider</a></h1>
 
             <nav id="navbar" class="navbar">
                 <ul>
@@ -264,7 +264,6 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="seogeek.php">Seo</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="uigeek.php">UI/UX</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="degitalmarketinggeek.php">digital marketing</a></li>
-
 
                         </ul>
                     </div>

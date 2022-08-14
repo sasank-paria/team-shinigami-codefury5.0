@@ -55,8 +55,7 @@
             <a class="navbar-brand" href="#">
                 <img src="assets/logo-removebg-preview.png" width="80" height="80" alt="" style="margin-right: 10%;">
             </a>
-            <h1 class="logo me-auto"><a href="index.html">Startup Guider</a></h1>
-
+            <h1 class="logo me-auto"><a href="homepage.php">Startup Guider</a></h1>
             <nav id="navbar" class="navbar">
 
 
