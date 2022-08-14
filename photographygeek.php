@@ -89,10 +89,10 @@
                   }
                   ?> width="30px" height="30px"></span> <i class="bi bi-chevron-down"></i></a>
                           <ul>
-                              <li><a href="#">Details</a></li>
+                          <li><a href="profile.php">Details</a></li>
                               <!-- <li><a href="#">Drop Down 2</a></li> -->
                               <!--  Use to create dropdown options  -->
-                              <li><a href="#">Log Out</a></li>
+                              <li><a href="index.html">Log Out</a></li>
                           </ul>
                       </li>
 
